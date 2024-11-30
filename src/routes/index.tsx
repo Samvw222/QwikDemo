@@ -8,13 +8,13 @@ const InstantLoading = component$(() => {
   return (
     <section class="border p-6 rounded-lg shadow-lg">
       <h2 class="text-2xl font-bold mb-4">1. Instant Loading</h2>
-      <p class="mb-4">
+      <p class="mb-4 text-gray-500">
         Deze component demonstreert hoe snel Qwik laadt.
         Merk op hoe de pagina direct laadt zonder JavaScript hydration.
       </p>
       
       <div class="bg-gray-100 p-4 rounded">
-        <p class="mb-2">Interactieve teller die JavaScript alleen laadt wanneer nodig:</p>
+        <p class="mb-2 text-gray-500">Interactieve teller die JavaScript alleen laadt wanneer nodig:</p>
         <button
           onClick$={() => count.value++}
           class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
@@ -23,7 +23,7 @@ const InstantLoading = component$(() => {
         </button>
       </div>
       
-      <div class="mt-4 text-sm text-gray-600">
+      <div class="mt-4 text-sm text-gray-500">
         <p> Open je DevTools Network tab en let op:</p>
         <ul class="list-disc ml-6">
           <li>Initiële paginalading heeft minimale JavaScript</li>
@@ -50,7 +50,7 @@ const CodeSplitting = component$(() => {
   return (
     <section class="border p-6 rounded-lg shadow-lg">
       <h2 class="text-2xl font-bold mb-4">2. Automatic Code-Splitting</h2>
-      <p class="mb-4">
+      <p class="mb-4 text-gray-500">
         Qwik splitst je code automatisch in kleine stukjes en laadt deze op aanvraag.
         Klik op de knop hieronder om een "zware" component te laden:
       </p>
@@ -65,14 +65,14 @@ const CodeSplitting = component$(() => {
       {showDetails.value && (
         <div class="mt-4 h-48 overflow-auto bg-gray-50 p-4 rounded">
           {heavyData.value.map((item) => (
-            <div key={item} class="py-1 border-b">
+            <div key={item} class="py-1 border-b text-gray-500">
               {item}
             </div>
           ))}
         </div>
       )}
 
-      <div class="mt-4 text-sm text-gray-600">
+      <div class="mt-4 text-sm text-gray-500">
         <p> Let op in DevTools:</p>
         <ul class="list-disc ml-6">
           <li>De component code laadt alleen na het klikken</li>
@@ -108,7 +108,7 @@ const Resumability = component$(() => {
   return (
     <section class="border p-6 rounded-lg shadow-lg">
       <h2 class="text-2xl font-bold mb-4">3. Resumability</h2>
-      <p class="mb-4">
+      <p class="mb-4 text-gray-500">
         Anders dan traditionele frameworks die de hele state moeten herbouwen,
         kan Qwik verdergaan waar het gebleven was. Probeer dit formulier:
       </p>
@@ -119,31 +119,31 @@ const Resumability = component$(() => {
         class="space-y-4"
       >
         <div>
-          <label class="block text-sm font-medium mb-1">Naam:</label>
+          <label class="block text-sm font-medium mb-1 text-gray-500">Naam:</label>
           <input
             type="text"
             value={state.form.name}
             onInput$={(ev: any) => state.form.name = ev.target.value}
-            class="w-full p-2 border rounded"
+            class="w-full p-2 border rounded text-gray-500"
           />
         </div>
 
         <div>
-          <label class="block text-sm font-medium mb-1">E-mail:</label>
+          <label class="block text-sm font-medium mb-1 text-gray-500">E-mail:</label>
           <input
             type="email"
             value={state.form.email}
             onInput$={(ev: any) => state.form.email = ev.target.value}
-            class="w-full p-2 border rounded"
+            class="w-full p-2 border rounded text-gray-500"
           />
         </div>
 
         <div>
-          <label class="block text-sm font-medium mb-1">Bericht:</label>
+          <label class="block text-sm font-medium mb-1 text-gray-500">Bericht:</label>
           <textarea
             value={state.form.message}
             onInput$={(ev: any) => state.form.message = ev.target.value}
-            class="w-full p-2 border rounded"
+            class="w-full p-2 border rounded text-gray-500"
             rows={3}
           />
         </div>
@@ -156,7 +156,7 @@ const Resumability = component$(() => {
               onChange$={(ev: any) => state.form.preferences.newsletter = ev.target.checked}
               class="mr-2"
             />
-            <span class="text-sm">Aanmelden voor nieuwsbrief</span>
+            <span class="text-sm text-gray-500">Aanmelden voor nieuwsbrief</span>
           </label>
           
           <label class="flex items-center">
@@ -166,7 +166,7 @@ const Resumability = component$(() => {
               onChange$={(ev: any) => state.form.preferences.notifications = ev.target.checked}
               class="mr-2"
             />
-            <span class="text-sm">Meldingen inschakelen</span>
+            <span class="text-sm text-gray-500">Meldingen inschakelen</span>
           </label>
         </div>
 
@@ -181,7 +181,7 @@ const Resumability = component$(() => {
       {state.submitted && (
         <div class="mt-4 p-4 bg-green-100 text-green-700 rounded">
           <p>Formulier verstuurd om {state.submissionTime} met:</p>
-          <ul class="list-disc ml-6 mt-2">
+          <ul class="list-disc ml-6 mt-2 text-gray-500">
             <li>Naam: {state.form.name}</li>
             <li>E-mail: {state.form.email}</li>
             <li>Bericht: {state.form.message}</li>
@@ -191,7 +191,7 @@ const Resumability = component$(() => {
         </div>
       )}
 
-      <div class="mt-4 text-sm text-gray-600">
+      <div class="mt-4 text-sm text-gray-500">
         <p> Om resumability in actie te zien:</p>
         <ol class="list-decimal ml-6">
           <li>Vul het formulier in (niet versturen)</li>
@@ -222,7 +222,7 @@ const ProgressiveEnhancement = component$(() => {
   return (
     <section class="border p-6 rounded-lg shadow-lg">
       <h2 class="text-2xl font-bold mb-4">4. Progressive Enhancement</h2>
-      <p class="mb-4">
+      <p class="mb-4 text-gray-500">
         Qwik componenten werken zonder JavaScript en verbeteren progressief wanneer JS laadt.
         Deze klok werkt met en zonder JavaScript:
       </p>
@@ -240,7 +240,7 @@ const ProgressiveEnhancement = component$(() => {
         </button>
       </div>
 
-      <div class="mt-4 text-sm text-gray-600">
+      <div class="mt-4 text-sm text-gray-500">
         <p> Progressive Enhancement kenmerken:</p>
         <ul class="list-disc ml-6">
           <li>Werkt zonder JavaScript (SSR)</li>
@@ -268,7 +268,7 @@ const Prefetching = component$(() => {
   return (
     <section class="border p-6 rounded-lg shadow-lg">
       <h2 class="text-2xl font-bold mb-4">5. Smart Prefetching</h2>
-      <p class="mb-4">
+      <p class="mb-4 text-gray-500">
         Qwik laadt automatisch componenten en bronnen vooraf op basis van gebruikersinteractie
         en viewport zichtbaarheid. Hover over elementen om prefetching in actie te zien:
       </p>
@@ -292,7 +292,7 @@ const Prefetching = component$(() => {
         </div>
       </div>
 
-      <div class="mt-4 text-sm text-gray-600">
+      <div class="mt-4 text-sm text-gray-500">
         <p> Voordelen van prefetching:</p>
         <ul class="list-disc ml-6">
           <li>Automatisch vooraf laden van bronnen</li>
